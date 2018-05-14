@@ -1,0 +1,35 @@
+body {
+
+background-color: #2F4550;
+color: #DEEEED;
+
+}
+
+#post {
+
+background-color: #586F7C;
+border-radius: 10px;
+margin-top: 5px;
+
+}
+
+.addc {
+
+background-color: #1A262C;
+
+}
+
+.detail {
+
+background-color: #f4f4f9;
+color: #000000;
+border-radius: 10px;
+
+
+}
+
+a {
+
+color: #DEEEED;
+
+}

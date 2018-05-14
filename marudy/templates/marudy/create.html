@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if error %}
+<br />
+<div class = "alert alert-danger">
+  <strong>{{error}}</strong>
+</div>
+<br />
+{% else %}
+
+<br />
+<br />
+<br />
+<br />
+
+{% endif %}
+<h1>Upoluj Marude</h1>
+
+<form method = "POST" action = "{% url 'create' %}" enctype = "multipart/form-data">
+
+    {% csrf_token %}
+
+    Title:
+    <br />
+    <input type = "text" name = "title" />
+    <br />
+
+    Text:
+    <br />
+    <input type = "textbox" name = "text" />
+    <br />
+
+    Url:
+    <br />
+    <input type = "textbox" name = "url" />
+    <br />
+
+    Icon:
+    <br />
+    <input type = "file" name = "icon" />
+    <br />
+
+    Image:
+    <br />
+    <input type = "file" name = "image" />
+    <br />
+
+    <br />
+    <input class = "btn btn-primary" type = "submit" value = "Submit Maruda" />
+
+</form>
+
+
+{% endblock %}

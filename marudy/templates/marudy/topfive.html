@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for maruda in marudy.all %}
+<div id = "post">
+  <div class = "row m-2"><h1>{{ forloop.counter }}. Miejsce</h1></div>
+<div class = "row p-3">
+
+  <div class = "col-2" onclick = "window.location='{% url 'detail'  maruda.id %}';" style = "cursor:pointer">
+    <img src = "{{ maruda.icon.url }}" class = "img-fluid img-thumbnail" />
+  </div>
+  <div class = "col-6">
+    <h1 onclick = "window.location='{% url 'detail'  maruda.id %}';" style = "cursor:pointer">{{ maruda.title }}</h1>
+    <p onclick = "window.location='{% url 'detail'  maruda.id %}';" style = "cursor:pointer">{{maruda.summary}}</p>
+  </div>
+  <div class = "col-4">
+
+      {% if maruda in marudalist %}
+      <a href = "javascript:{document.getElementById('upvote{{maruda.id}}').submit()}"><button class = "btn btn-success btn-lg btn-block text-truncate"><span class="oi oi-check"></span> Zaglosowano [{{maruda.votes_total}}]</button></a>
+      {% else %}
+      <a href = "javascript:{document.getElementById('upvote{{maruda.id}}').submit()}"><button class = "btn btn-primary btn-lg btn-block text-truncate"></span> Zaglosuj! [{{maruda.votes_total}}]</button></a>
+      {% endif %}
+
+  </div>
+</div>
+
+<form id = "upvote{{maruda.id}}" method = "POST" action = '{% url 'upvote' maruda.id %}'>
+  {% csrf_token %}
+  <input type = "hidden">
+</form>
+</div>
+
+{% endfor %}
+{% endblock %}
