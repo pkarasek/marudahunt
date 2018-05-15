@@ -9,8 +9,8 @@
     <img src = "{{ maruda.icon.url }}" class = "img-fluid img-thumbnail" />
   </div>
   <div class = "col-6">
-    <h1 onclick = "window.location='{% url 'detail'  maruda.id %}';" style = "cursor:pointer">{{ maruda.title }}</h1>
-    <p onclick = "window.location='{% url 'detail'  maruda.id %}';" style = "cursor:pointer">{{maruda.summary}}</p>
+    <h1 onclick = "window.location='{% url 'detail'  maruda.id %}';" style = "cursor:pointer" class = "text-truncate">{{ maruda.title }}</h1>
+    <p onclick = "window.location='{% url 'detail'  maruda.id %}';" style = "cursor:pointer" class = "text-truncate">{{maruda.summary}}</p>
   </div>
   <div class = "col-4">
 
